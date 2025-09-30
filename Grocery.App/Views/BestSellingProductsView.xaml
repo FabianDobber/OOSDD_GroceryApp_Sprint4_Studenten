@@ -18,26 +18,34 @@
                 <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
             </CollectionView.ItemsLayout>
             <CollectionView.Header>
-                <Grid>
+                <Grid Padding="0,5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.5*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <!-- PLaats hier de header velden voor de tabel-->
+                    <!-- Header velden voor de tabel -->
+                    <Label Grid.Column="0" Text="Rank" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <Label Grid.Column="1" Text="Product" FontAttributes="Bold" />
+                    <Label Grid.Column="2" Text="Aantal Verkocht" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <Label Grid.Column="3" Text="Voorraad" FontAttributes="Bold" HorizontalTextAlignment="Center" />
                 </Grid>
             </CollectionView.Header>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="m:BestSellingProducts">
-                    <Grid>
+                    <Grid Padding="0,5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.5*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <!-- PLaats hier de datavelden voor de tabel-->
+                        <!-- Datavelden voor de tabel -->
+                        <Label Grid.Column="0" Text="{Binding Ranking}" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                        <Label Grid.Column="1" Text="{Binding Name}" VerticalOptions="Center"/>
+                        <Label Grid.Column="2" Text="{Binding NrOfSells}" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+                        <Label Grid.Column="3" Text="{Binding Stock}" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

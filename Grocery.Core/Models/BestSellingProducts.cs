@@ -5,7 +5,8 @@ namespace Grocery.Core.Models
 {
     public partial class BestSellingProducts : Model
     {
-        public int Stock { get; set; }
+        [ObservableProperty]
+        public int stock;
         [ObservableProperty]
         public int nrOfSells;
         [ObservableProperty]
