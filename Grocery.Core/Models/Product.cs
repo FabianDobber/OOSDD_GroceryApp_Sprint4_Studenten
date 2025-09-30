@@ -1,11 +1,13 @@
-﻿namespace Grocery.Core.Models
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+namespace Grocery.Core.Models
 {
-    public class Product : Model
+    public partial class Product : Model
     {
-        public int Stock { get; set; }
+        [ObservableProperty]
+        public int _Stock;
         public Product(int id, string name, int stock) : base(id, name)
         {
-            Stock = stock;
+            _Stock = stock;
         }
     }
 }
