@@ -8,9 +8,9 @@ namespace Grocery.Core.Models
         [ObservableProperty]
         public int stock;
         [ObservableProperty]
-        public int nrOfSells;
+        private int nrOfSells;
         [ObservableProperty]
-        public int ranking;
+        private int ranking;
 
         public BestSellingProducts(int productId, string name, int stock, int nrOfSells, int ranking) : base(productId, name)
         {
