@@ -7,7 +7,7 @@ namespace Grocery.Core.Models
         public DateOnly Date { get; set; }
         public int ClientId { get; set; }
         [ObservableProperty]
-        public string color;
+        private string color;
 
         public GroceryList(int id, string name, DateOnly date, string color, int clientId) : base(id, name)
         {

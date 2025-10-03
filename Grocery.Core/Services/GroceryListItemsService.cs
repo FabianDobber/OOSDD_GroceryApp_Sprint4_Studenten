@@ -36,7 +36,7 @@ namespace Grocery.Core.Services
 
         public GroceryListItem? Delete(GroceryListItem item)
         {
-            throw new NotImplementedException();
+            return _groceriesRepository.Delete(item);
         }
 
         public GroceryListItem? Get(int id)
@@ -48,12 +48,25 @@ namespace Grocery.Core.Services
         {
             return _groceriesRepository.Update(item);
         }
-
         public List<BestSellingProducts> GetBestSellingProducts(int topX = 5)
         {
-            throw new NotImplementedException();
+            return _groceriesRepository.GetAll()
+                .GroupBy(item => item.ProductId)
+                .Select(productGroup => new { ProductId = productGroup.Key, NrOfSells = productGroup.Sum(item => item.Amount) })
+                .OrderByDescending(saleSummary => saleSummary.NrOfSells)
+                .Take(topX)
+                .Select((saleSummary, index) => {
+                    var productDetails = _productRepository.Get(saleSummary.ProductId);
+                    return new BestSellingProducts(
+                        productDetails.Id,
+                        productDetails.Name,
+                        productDetails.Stock,
+                        saleSummary.NrOfSells,
+                        index + 1
+                    );
+                })
+                .ToList();
         }
-
         private void FillService(List<GroceryListItem> groceryListItems)
         {
             foreach (GroceryListItem g in groceryListItems)

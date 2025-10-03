@@ -1,4 +1,4 @@
-# GroceryApp sprint4 Studentversie  
+# GroceryApp sprint4 Studentversie-
 
 ## UC10 Productaantal in boodschappenlijst
 Aanpassingen zijn compleet.

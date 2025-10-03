@@ -33,6 +33,7 @@ namespace Grocery.App
             builder.Services.AddSingleton<IClientService, ClientService>();
             builder.Services.AddSingleton<IFileSaverService, FileSaverService>();
             builder.Services.AddSingleton<IBoughtProductsService, BoughtProductsService>();
+            builder.Services.AddSingleton<IAuthService, AuthService>();
 
             builder.Services.AddSingleton<IGroceryListRepository, GroceryListRepository>();
             builder.Services.AddSingleton<IGroceryListItemsRepository, GroceryListItemsRepository>();
